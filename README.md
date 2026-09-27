@@ -1,6 +1,6 @@
 # 13.Kubernetes.Data.Secrets
 
-I updated the manifest from the previous task: I added `initContainers` logic, a shared `emptyDir` volume for exchanging the generated file, and a section to mount SSH keys from a `SealedSecret` for the root user.
+* I updated the manifest from the previous task: I added `initContainers` logic, a shared `emptyDir` volume for exchanging the generated file, and a section to mount SSH keys from a `SealedSecret` for the root user.
 
 ### 1. Dynamic Web Page Generation (Init Container)
 ```
@@ -12,7 +12,7 @@ curl nginx-test.k8s-7.sa
 
 ---
 ### 2. Secure Credential Management (SealedSecrets)
-The private and public keys were encrypted using the cluster's kubeseal, and only the secure SealedSecret manifest was added to the repository.
+* The private and public keys were encrypted using the cluster's kubeseal, and only the secure SealedSecret manifest was added to the repository.
 ```
 kubectl apply -f https://github.com/bitnami/sealed-secrets/releases/download/v0.40.0/controller.yaml
 curl -OL "https://github.com/bitnami/sealed-secrets/releases/download/v0.40.0/kubeseal-0.40.0-linux-amd64.tar.gz"
@@ -31,5 +31,12 @@ kubectl get sealedsecret
 ```
 
 <img width="975" height="491" alt="image" src="https://github.com/user-attachments/assets/887bae41-1054-4b40-93fc-2ec3a601f391" />
+
+---
+### Played around with NFS and PVC:
+<img width="975" height="733" alt="image" src="https://github.com/user-attachments/assets/716a92a3-cc30-4d3f-8aaf-492451913092" />
+<img width="975" height="314" alt="image" src="https://github.com/user-attachments/assets/c983190d-a1dc-4c91-8ecb-25eeee572f62" />
+
+
 
 
